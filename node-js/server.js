@@ -4,6 +4,8 @@ const http = require('http');
 const server = http.createServer(app);
 const logger = require('morgan');
 const cors = require('cors');
+//importar rutas
+const users = require('./routes/userRoutes');
 
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
@@ -13,6 +15,8 @@ app.use(cors());
 app.disable('x-powered-by');
 
 app.set('port', port);   
+//llamado de rutas
+users(app);
 //Direccion IP 192.168.1.9
 server.listen(3000, '192.168.1.9' || 'localhost', function(){
     console.log('Apliacion de NodeJs' +  process.pid + 'inicio en el puerto' + port);
