@@ -17,8 +17,8 @@ app.disable('x-powered-by');
 app.set('port', port);   
 //llamado de rutas
 users(app);
-//Direccion IP 192.168.1.9
-server.listen(3000, '192.168.1.9' || 'localhost', function(){
+//Direccion IP
+server.listen(3000, '10.175.92.20' || 'localhost', function(){
     console.log('Apliacion de NodeJs' +  process.pid + 'inicio en el puerto' + port);
 })
 

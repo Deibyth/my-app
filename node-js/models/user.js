@@ -1,41 +1,44 @@
-const mysql = require('../config/config');
-const User = {};
-User.create = (user, result) => {
-    const sql = `
-    INSRT INTOP  user (
+const db = require("../config/config");
+
+const User = {
+    create: (user, result) => {
+        const sql = `
+    INSERT INTO users (
         email,
         firstname,
         lastname,
         phone,
         image,
         pass,
-        creted_at,
-        updated_at
+        created_at,
+        update_at
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
-    ;
+    VALUES (?,?,?,?,?,?,?,?)
+    `;
 
-    db.query(
-        sql,
-        {
-            useremail,
-            userfirstname,
-            userlastname,
-            userphone,
-            userimage,
-            userpass,
-            new :Date(), 
-            new :Date()
-        },
-        (err, res) => {
-            if (err) {
-                console.log('error: ', err)
-                result(err, null);
-            }
-            else {
-                console.log('Id del nuevo usuario: ', res.insertId);
-                result(null, res.insertId);
+        db.query(
+            sql,
+            [
+                user.email,
+                user.firstname,
+                user.lastname,
+                user.phone,
+                user.image,
+                user.pass,
+                new Date(),
+                new Date(),
+            ],
+            (err, res) => {
+                if (err) {
+                    console.log("error: ", err);
+                    result(err, null);
+                } else {
+                    console.log("Id del nuevo usuario: ", res.insertId);
+                    result(null, res.insertId);
                 }
-        }
-    )
+            }
+        );
+    },
 };
+
+module.exports = User;

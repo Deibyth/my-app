@@ -12,6 +12,7 @@ import useRegisterViewModel from "./ViewModel";
 import CustomTextInput from "../../components/CustomTextInput";
 import styles from './Styles'
 
+
 export const RegisterScreen = () => {
   const [userData, setUserData] = useState({
     nombres: "",
