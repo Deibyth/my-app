@@ -12,7 +12,7 @@ export const useHomeViewModel = () => {
   })
 
   const { user, getUserSession } = useUserLocal();
-  // console.log('Usuario: ' + JSON.stringify(user));
+  console.log('Usuario: ' + JSON.stringify(user));
   useEffect(() => {
     getUserSession();
   }, []);
@@ -25,7 +25,7 @@ export const useHomeViewModel = () => {
     if (isValidForm()) {
       const response = await LoginAuthUseCase(values.email,
         values.password);
-      // console.log('Respuesta: ' + JSON.stringify(response));
+      console.log('Respuesta: ' + JSON.stringify(response));
       if (!response.success) {
         setErrorMessage(response.message);
         return false

@@ -23,7 +23,7 @@ app.set("port", port);
 //Llamado de rutas
 userRoutes(app);
 //Directorio ip v4 de la maquina, consultar con Ipconfig;
-server.listen(port, "10.175.80.159" || "localhost", function () {
+server.listen(port, "10.175.80.37" || "localhost", function () {
   console.log(
     `Aplicación de NodeJS ${process.pid} inicio en el puerto ${
       server.address().address
